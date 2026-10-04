@@ -36,7 +36,7 @@ export function TransactionRow({
         <Text className="text-lg">{config.icon}</Text>
       </View>
 
-      <View className="flex-1">
+      <View className="min-w-0 flex-1">
         <Text
           className="text-brand-bg text-sm font-medium"
           style={{ flexShrink: 1 }}
@@ -70,6 +70,7 @@ export function TransactionRow({
         className={`text-sm font-medium ${
           isIncome ? "text-brand-success" : "text-brand-coral"
         }`}
+        style={{ flexShrink: 1, textAlign: "right" }}
       >
         {isIncome ? "+" : "-"}
         {formatPrice(tx.amount)}

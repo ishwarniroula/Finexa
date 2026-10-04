@@ -9,6 +9,7 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -92,7 +93,16 @@ export default function SignUpScreen() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         className="flex-1 bg-brand-body"
       >
-        <View className="flex-1 justify-center px-6 -mt-16">
+        <ScrollView
+          className="flex-1"
+          contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: "center",
+            paddingHorizontal: 24,
+            paddingVertical: 32,
+          }}
+          keyboardShouldPersistTaps="handled"
+        >
           <Image
             source={require("../../assets/images/welth.png")}
             className="w-36 h-16 mb-8"
@@ -153,7 +163,7 @@ export default function SignUpScreen() {
           <TouchableOpacity onPress={() => signUp.reset()} className="py-2">
             <Text className="text-brand-blue text-sm">Start over</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       </KeyboardAvoidingView>
     );
   }
@@ -163,7 +173,16 @@ export default function SignUpScreen() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       className="flex-1 bg-brand-body"
     >
-      <View className="flex-1 justify-center px-6 -mt-16">
+      <ScrollView
+        className="flex-1"
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "center",
+          paddingHorizontal: 24,
+          paddingVertical: 32,
+        }}
+        keyboardShouldPersistTaps="handled"
+      >
         <Image
           source={require("../../assets/images/welth.png")}
           className="w-36 h-16 mb-8"
@@ -183,7 +202,7 @@ export default function SignUpScreen() {
             render={({ field: { value, onChange } }) => {
               return (
                 <TextInput
-                  className="flex-1 border border-[#E8E6DF] bg-white rounded-xl px-4 py-3 text-[#1A1D26]"
+                  className="min-w-0 flex-1 border border-[#E8E6DF] bg-white rounded-xl px-4 py-3 text-[#1A1D26]"
                   placeholder="First name"
                   placeholderTextColor="#8A8D96"
                   value={value}
@@ -199,7 +218,7 @@ export default function SignUpScreen() {
             render={({ field: { value, onChange } }) => {
               return (
                 <TextInput
-                  className="flex-1 border border-[#E8E6DF] bg-white rounded-xl px-4 py-3 text-[#1A1D26]"
+                  className="min-w-0 flex-1 border border-[#E8E6DF] bg-white rounded-xl px-4 py-3 text-[#1A1D26]"
                   placeholder="Last name"
                   placeholderTextColor="#8A8D96"
                   value={value}
@@ -282,8 +301,11 @@ export default function SignUpScreen() {
           )}
         </TouchableOpacity>
 
-        <View className="flex-row justify-center">
-          <Text className="text-brand-text-muted">
+        <View className="flex-row flex-wrap justify-center">
+          <Text
+            className="text-brand-text-muted"
+            style={{ flexShrink: 1, textAlign: "center" }}
+          >
             Already have an account?{" "}
           </Text>
           <Link href="/sign-in">
@@ -293,7 +315,7 @@ export default function SignUpScreen() {
 
         {/* Required by Clerk for bot protection */}
         <View nativeID="clerk-captcha" />
-      </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }

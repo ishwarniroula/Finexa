@@ -41,13 +41,19 @@ const INITIAL_MESSAGES: ChatMessage[] = [
 function MessageBubble({ message }: { message: ChatMessage }) {
   const isUser = message.role === "user";
   return (
-    <View className={`mb-3 max-w-[85%] ${isUser ? "self-end" : "self-start"}`}>
+    <View
+      className={`mb-3 max-w-[85%] ${isUser ? "self-end" : "self-start"}`}
+      style={{ flexShrink: 1 }}
+    >
       <View
         className={`rounded-2xl px-3.5 py-2.5 ${
           isUser ? "bg-brand-bg" : "bg-white border border-[#E8E6DF]"
         }`}
       >
-        <Text className={`text-sm ${isUser ? "text-white" : "text-brand-bg"}`}>
+        <Text
+          className={`text-sm ${isUser ? "text-white" : "text-brand-bg"}`}
+          style={{ flexShrink: 1 }}
+        >
           {message.content}
         </Text>
       </View>
@@ -184,7 +190,7 @@ export default function AssistantScreen() {
               <TouchableOpacity
                 key={prompt}
                 onPress={() => sendMessage(prompt)}
-                className="bg-white rounded-xl border border-[#E8E6DF] px-3.5 py-2.5 self-start"
+                className="max-w-[90%] bg-white rounded-xl border border-[#E8E6DF] px-3.5 py-2.5 self-start"
               >
                 <Text className="text-brand-text-secondary text-xs">
                   {prompt}

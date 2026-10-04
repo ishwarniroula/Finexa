@@ -12,6 +12,7 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -113,7 +114,16 @@ export default function OnboardingScreen() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         className="flex-1"
       >
-        <View className="flex-1 px-6 justify-center -mt-16">
+        <ScrollView
+          className="flex-1"
+          contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: "center",
+            paddingHorizontal: 24,
+            paddingVertical: 32,
+          }}
+          keyboardShouldPersistTaps="handled"
+        >
           <Image
             source={require("../../assets/images/welth.png")}
             className="w-32 h-14 mb-10"
@@ -168,7 +178,7 @@ export default function OnboardingScreen() {
             onPress={() => setPickerOpen(true)}
             className="flex-row items-center justify-between bg-white border border-[#E8E6DF] rounded-xl px-4 py-3.5 mb-6"
           >
-            <Text className="text-sm text-brand-bg">
+            <Text className="min-w-0 flex-1 text-sm text-brand-bg">
               {selectedCurrency.symbol} {selectedCurrency.code} —{" "}
               {selectedCurrency.name}
             </Text>
@@ -189,7 +199,7 @@ export default function OnboardingScreen() {
               {saving ? "Saving…" : "Get started"}
             </Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       </KeyboardAvoidingView>
 
       <CurrencyPicker

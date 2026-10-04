@@ -9,6 +9,7 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -92,7 +93,16 @@ export default function SignIn() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         className="flex-1 bg-brand-body"
       >
-        <View className="flex-1 justify-center px-6 -mt-16">
+        <ScrollView
+          className="flex-1"
+          contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: "center",
+            paddingHorizontal: 24,
+            paddingVertical: 32,
+          }}
+          keyboardShouldPersistTaps="handled"
+        >
           <Image
             source={require("../../assets/images/welth.png")}
             className="w-36 h-16 mb-8"
@@ -150,7 +160,7 @@ export default function SignIn() {
           <TouchableOpacity onPress={() => signIn.reset()} className="py-2">
             <Text className="text-brand-blue text-sm">Start over</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       </KeyboardAvoidingView>
     );
   }
@@ -160,7 +170,16 @@ export default function SignIn() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       className="flex-1 bg-brand-body"
     >
-      <View className="flex-1 justify-center px-6 -mt-16">
+      <ScrollView
+        className="flex-1"
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "center",
+          paddingHorizontal: 24,
+          paddingVertical: 32,
+        }}
+        keyboardShouldPersistTaps="handled"
+      >
         <Image
           source={require("../../assets/images/welth.png")}
           className="w-36 h-16 mb-8"
@@ -239,15 +258,18 @@ export default function SignIn() {
           )}
         </TouchableOpacity>
 
-        <View className="flex-row justify-center">
-          <Text className="text-brand-text-muted">
+        <View className="flex-row flex-wrap justify-center">
+          <Text
+            className="text-brand-text-muted"
+            style={{ flexShrink: 1, textAlign: "center" }}
+          >
             Don&apos;t have an account?{" "}
           </Text>
           <Link href="/sign-up">
             <Text className="text-brand-blue font-semibold">Sign Up</Text>
           </Link>
         </View>
-      </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }

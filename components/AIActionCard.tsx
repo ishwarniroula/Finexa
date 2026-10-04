@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-const CARD_HEIGHT = 108;
+const CARD_MIN_HEIGHT = 108;
 
 export function AIActionCard({
   icon,
@@ -25,8 +25,11 @@ export function AIActionCard({
   colors: [string, string];
   onPress: () => void;
 }) {
-  const [width, setWidth] = useState(0);
-  const diag = width > 0 ? Math.sqrt(width ** 2 + CARD_HEIGHT ** 2) * 1.4 : 0;
+  const [{ width, height }, setSize] = useState({
+    width: 0,
+    height: CARD_MIN_HEIGHT,
+  });
+  const diag = width > 0 ? Math.sqrt(width ** 2 + height ** 2) * 1.4 : 0;
   const translateX = useSharedValue(0);
 
   useEffect(() => {
@@ -46,9 +49,14 @@ export function AIActionCard({
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.85} style={{ flex: 1 }}>
       <View
-        onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
+        onLayout={(e) =>
+          setSize({
+            width: e.nativeEvent.layout.width,
+            height: e.nativeEvent.layout.height,
+          })
+        }
         style={{
-          height: CARD_HEIGHT,
+          minHeight: CARD_MIN_HEIGHT,
           borderRadius: 18,
           overflow: "hidden",
           backgroundColor: colors[0],
@@ -61,7 +69,7 @@ export function AIActionCard({
               position: "absolute",
               width: diag,
               height: diag,
-              top: -(diag - CARD_HEIGHT) / 2,
+              top: -(diag - height) / 2,
               left: -(diag - width) / 2,
               transform: [{ rotate: "-20deg" }],
             }}
@@ -80,13 +88,7 @@ export function AIActionCard({
           </View>
         )}
 
-        <View
-          style={{
-            position: "absolute",
-            inset: 0,
-            padding: 16,
-          }}
-        >
+        <View style={{ padding: 16 }}>
           <View className="w-9 h-9 rounded-full bg-white/20 items-center justify-center mb-3">
             <Feather name={icon} size={16} color="#fff" />
           </View>

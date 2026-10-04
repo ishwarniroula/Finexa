@@ -182,19 +182,22 @@ export default function HomeScreen() {
             <Text className="text-brand-text-secondary text-xs mb-1.5">
               Total balance
             </Text>
-            <Text className="text-brand-text-primary text-[38px] font-medium tracking-tight">
+            <Text
+              className="text-brand-text-primary text-[38px] font-medium tracking-tight"
+              style={{ flexShrink: 1 }}
+            >
               {formatPrice(totalBalance, currency)}
             </Text>
             <View className="flex-row gap-3.5 mt-2.5">
               <View className="flex-row items-center gap-1.5">
                 <Feather name="arrow-up-right" size={14} color="#3DDC84" />
-                <Text className="text-brand-success text-[13px]">
+                <Text className="text-brand-success text-[13px]" style={{ flexShrink: 1 }}>
                   {formatPrice(monthIncome, currency)}
                 </Text>
               </View>
               <View className="flex-row items-center gap-1.5">
                 <Feather name="arrow-down-right" size={14} color="#FF6B4A" />
-                <Text className="text-brand-coral text-[13px]">
+                <Text className="text-brand-coral text-[13px]" style={{ flexShrink: 1 }}>
                   {formatPrice(monthExpense, currency)}
                 </Text>
               </View>
@@ -220,7 +223,10 @@ export default function HomeScreen() {
                 >
                   <Feather name={action.icon} size={17} color={action.color} />
                 </View>
-                <Text className="text-[#B8BAC2] text-[11px] font-medium text-center">
+                <Text
+                  className="w-full text-[#B8BAC2] text-[11px] font-medium text-center"
+                  style={{ flexShrink: 1 }}
+                >
                   {action.label}
                 </Text>
               </TouchableOpacity>
@@ -312,11 +318,14 @@ export default function HomeScreen() {
                           className="w-2 h-2 rounded-full"
                           style={{ backgroundColor: c.color }}
                         />
-                        <Text className="text-brand-text-secondary text-[11px]">
+                        <Text className="min-w-0 flex-1 text-brand-text-secondary text-[11px]">
                           {getCategoryConfig(c.category).label}
                         </Text>
                       </View>
-                      <Text className="text-brand-bg text-[11px] font-medium">
+                      <Text
+                        className="text-brand-bg text-[11px] font-medium"
+                        style={{ flexShrink: 1, textAlign: "right" }}
+                      >
                         {formatPrice(c.amount, currency)}
                       </Text>
                     </View>

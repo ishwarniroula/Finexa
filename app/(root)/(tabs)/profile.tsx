@@ -63,14 +63,19 @@ function Row({
         <Feather name={icon} size={15} color={danger ? "#FF6B4A" : "#5C5F68"} />
       </View>
       <Text
-        className={`flex-1 text-sm ${
+        className={`min-w-0 flex-1 text-sm ${
           danger ? "text-brand-coral" : "text-brand-bg"
         }`}
       >
         {label}
       </Text>
       {value && (
-        <Text className="text-brand-text-secondary text-xs mr-2">{value}</Text>
+        <Text
+          className="ml-2 text-brand-text-secondary text-xs"
+          style={{ flexShrink: 1, textAlign: "right" }}
+        >
+          {value}
+        </Text>
       )}
       {showChevron && onPress && (
         <Feather name="chevron-right" size={16} color="#BDC3C7" />
@@ -216,13 +221,16 @@ export default function ProfileScreen() {
             </View>
           </TouchableOpacity>
 
-          <Text className="text-white text-2xl font-bold mt-3.5 text-center">
+          <Text
+            className="w-full text-white text-2xl font-bold mt-3.5 text-center"
+            style={{ flexShrink: 1 }}
+          >
             {user?.firstName} {user?.lastName}
           </Text>
-          <View className="flex-row items-center gap-1.5 mt-1">
+          <View className="w-full flex-row items-center gap-1.5 mt-1">
             <Feather name="mail" size={11} color="#8A8D96" />
             <Text
-              className="text-brand-text-secondary text-xs flex-1"
+              className="min-w-0 flex-1 text-brand-text-secondary text-xs"
               style={{ flexShrink: 1 }}
             >
               {user?.emailAddresses?.[0]?.emailAddress}

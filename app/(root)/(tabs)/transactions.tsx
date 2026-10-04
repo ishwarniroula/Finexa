@@ -140,7 +140,7 @@ export default function TransactionsScreen() {
     <SafeAreaView className="flex-1 bg-brand-body" edges={["top"]}>
       <View className="px-5 pt-3 pb-2">
         <View className="flex-row items-center justify-between mb-3">
-          <Text className="text-brand-bg text-xl font-semibold">
+          <Text className="min-w-0 flex-1 text-brand-bg text-xl font-semibold">
             Transactions
           </Text>
           <TouchableOpacity
@@ -163,7 +163,7 @@ export default function TransactionsScreen() {
             onChangeText={setSearch}
             placeholder="Search transactions"
             placeholderTextColor="#8A8D96"
-            className="flex-1 text-xs text-brand-bg"
+            className="min-w-0 flex-1 text-xs text-brand-bg"
           />
           {search.length > 0 && (
             <TouchableOpacity onPress={() => setSearch("")}>
