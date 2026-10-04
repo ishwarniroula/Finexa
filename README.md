@@ -1,3 +1,5 @@
+
+Welth (Under Finexa Groups)
 # Full Stack React Native Course - Build Welth (Full Stack App for IOS and Android)
 
 A full-stack budgeting app for iOS and Android built with Expo and Supabase — track accounts and transactions, set a monthly budget, and log expenses by typing, scanning a receipt, or just speaking to it.
