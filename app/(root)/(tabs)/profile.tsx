@@ -216,14 +216,14 @@ export default function ProfileScreen() {
             </View>
           </TouchableOpacity>
 
-          <Text className="text-white text-2xl font-bold mt-3.5">
+          <Text className="text-white text-2xl font-bold mt-3.5 text-center">
             {user?.firstName} {user?.lastName}
           </Text>
           <View className="flex-row items-center gap-1.5 mt-1">
             <Feather name="mail" size={11} color="#8A8D96" />
             <Text
-              className="text-brand-text-secondary text-xs"
-              numberOfLines={1}
+              className="text-brand-text-secondary text-xs flex-1"
+              style={{ flexShrink: 1 }}
             >
               {user?.emailAddresses?.[0]?.emailAddress}
             </Text>

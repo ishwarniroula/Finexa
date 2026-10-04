@@ -146,20 +146,17 @@ export default function HomeScreen() {
               style={{ width: 76, height: 32, flexShrink: 0 }}
               contentFit="contain"
             />
-            <View className="flex-row items-center gap-2.5">
-              <View
-                className="items-end"
-                style={{ width: 132, flexShrink: 0 }}
-              >
+            <View className="flex-1 flex-row items-center justify-end gap-2.5">
+              <View className="flex-1 items-end" style={{ minWidth: 0 }}>
                 <Text
-                  className="text-brand-text-secondary text-xs"
-                  style={{ flexShrink: 0, includeFontPadding: true }}
+                  className="text-brand-text-secondary text-xs text-right"
+                  style={{ flexShrink: 1, includeFontPadding: true }}
                 >
                   {getGreeting()}
                 </Text>
                 <Text
-                  className="text-brand-text-primary text-base font-medium"
-                  style={{ flexShrink: 0, includeFontPadding: true }}
+                  className="text-brand-text-primary text-base font-medium text-right"
+                  style={{ flexShrink: 1, includeFontPadding: true }}
                 >
                   {user?.firstName ?? "there"}
                 </Text>

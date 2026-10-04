@@ -87,7 +87,7 @@ export function CurrencyPicker({
               </Text>
               <Text
                 className="text-brand-text-secondary text-sm flex-1"
-                numberOfLines={1}
+                style={{ flexShrink: 1 }}
               >
                 {item.name}
               </Text>

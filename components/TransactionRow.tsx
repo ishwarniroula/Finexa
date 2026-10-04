@@ -37,7 +37,10 @@ export function TransactionRow({
       </View>
 
       <View className="flex-1">
-        <Text className="text-brand-bg text-sm font-medium" numberOfLines={1}>
+        <Text
+          className="text-brand-bg text-sm font-medium"
+          style={{ flexShrink: 1 }}
+        >
           {tx.description || config.label}
         </Text>
         <View className="flex-row items-center gap-1.5 mt-0.5">
