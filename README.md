@@ -2,9 +2,13 @@
 Welth (Under Finexa Groups)
 Members Of Finexa
 1)Ishwar Niroula(Lead)
+
 2)Isha Niroula 
+
 3)Begam Thapa
+
 4)Nisum Lawati
+
 5) Anupama Dahal
 
 # Full Stack React Native Course - Build Welth (Full Stack App for IOS and Android)
